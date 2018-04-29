@@ -17,6 +17,11 @@ defmodule MyAppWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    #resources "/users", UserController
+    get "/hello", HelloController, :index
+    get "/hello/:messenger", HelloController, :show 
+    resources "/posts", PostController, only: [:index, :show]
+    resources "/comments", CommentController, except: [:delete]
   end
 
   # Other scopes may use custom stacks.

@@ -1,0 +1,11 @@
+defmodule MyAppWeb.HelloController do
+  use MyAppWeb, :controller
+
+  def index(conn, _params) do
+    render conn, "index.html"
+  end
+
+  def show(conn,%{"messenger"=>messenger}) do
+      render conn, "show.html", pp: messenger
+  end
+end
